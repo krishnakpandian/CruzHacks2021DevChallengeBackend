@@ -1,3 +1,6 @@
+// schema.js
+
+// Creates a hacker object given a request body
 function createHackerObj(hackerData) {
     return {
         firstName: hackerData.firstName,

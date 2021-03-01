@@ -1,8 +1,10 @@
+// firebaseConfig.js
 const firebase = require('firebase');
 const admin = require('firebase-admin');
 const serviceAccount = require("./key.json");
 require('dotenv').config();
 
+// Set up Firebase Configuration
 const firebaseConfig = {
     apiKey: process.env.APIKEY,
     authDomain: process.env.AUTHDOMAIN,
@@ -14,7 +16,7 @@ const firebaseConfig = {
     measurementId: process.env.MEASUREMENTID
   };
 firebase.initializeApp(firebaseConfig);
-admin.initializeApp({
+const firebaseApp = admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
 
@@ -23,4 +25,4 @@ db.settings({
   timestampsInSnapshots: true
 });
 
-module.exports = {db}
+module.exports = {db, firebaseApp}
