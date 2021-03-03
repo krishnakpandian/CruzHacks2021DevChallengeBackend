@@ -1,15 +1,4 @@
 //index.js
-const express = require('express');
-const bodyParser = require('body-parser');
-const PORT = process.env.port || 8080;
-const Routes = require('./routes/routes');
-require('dotenv').config()
-
-// Set up Express Server
-const app = express();
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use('/', Routes);
-app.listen(PORT, () => { console.log('Running on Port ' + PORT) });
-
-module.exports = {app}
+const app = require('./server').app
+const PORT = 8080
+app.listen(PORT, () => { console.log('Server has started Running') });

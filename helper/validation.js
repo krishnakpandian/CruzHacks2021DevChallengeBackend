@@ -1,5 +1,5 @@
 // validation.js
-const firebase = require('../firebaseConfig');
+const firebase = require('./firebaseConfig');
 const hackersDB = firebase.db.collection('hackers');
 
 // Checks if message is alphanumeric

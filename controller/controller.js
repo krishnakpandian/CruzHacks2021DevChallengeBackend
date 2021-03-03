@@ -3,7 +3,7 @@ const createHackerObj = require('../helper/schema').createHackerObj;
 const validateHackerData = require('../helper/validation').validateHackerData;
 
 // Get required database
-const firebase = require('../firebaseConfig');
+const firebase = require('../helper/firebaseConfig');
 const db = firebase.db;
 const hackersDB = db.collection('hackers');
 
@@ -23,8 +23,8 @@ const createHacker = async (req,res) => {
         return res.status(201).send(JSON.stringify({ "statusCode": 201, "message": "Successfully Created User", "id": id}));
     }
     catch (error) {
-        console.error(error);
-        return res.status(501).send(JSON.stringify({ "statusCode": 501, "message": "Server Error" }));
+        //console.error(error);
+        return res.status(501).send(JSON.stringify({ "statusCode": 501, "message": error }));
     }
 }
 
@@ -39,8 +39,8 @@ const getHacker = async (req,res) => {
         return res.status(200).send(JSON.stringify({ results: doc.data(), "statusCode": 200, "message": "Hacker Information Retrieved" }));
     }
     catch (error) {
-        console.error(error);
-        return res.status(500).send(JSON.stringify({ "statusCode": 500, "message": "Server Error" }));
+        //console.error(error);
+        return res.status(500).send(JSON.stringify({ "statusCode": 500, "message": error }));
     }
 }
 
@@ -63,8 +63,8 @@ const getAllHackers = async (req,res) => {
         return res.status(200).send(JSON.stringify({ "results": hackers, "statusCode": 200, "message": "Retrieved all hackers" }));
     }
     catch (error) {
-        console.error(error);
-        return res.status(500).send(JSON.stringify({ "statusCode": 500, "message": "Server Error" }));
+        //console.error(error);
+        return res.status(500).send(JSON.stringify({ "statusCode": 500, "message": error }));
     }
 }
 
@@ -76,8 +76,8 @@ const deleteHacker = async (req,res) => {
         return res.status(200).send({ "statusCode": 200, "message": "Succesful Deletion" });
     }
     catch (error) {
-        console.error(error);
-        return res.status(500).send(JSON.stringify({ "statusCode": 500, "message": "Server Error" }));
+        //console.error(error);
+        return res.status(500).send(JSON.stringify({ "statusCode": 500, "message": error }));
     }
 }
 
