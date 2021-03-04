@@ -57,10 +57,8 @@ const getAllHackers = async (req,res) => {
             }
             )
         })
-        if (hackers == []){
-            return res.status(400).send(JSON.stringify({"statusCode": 400, "message": response}));
-        }
-        return res.status(200).send(JSON.stringify({ "results": hackers, "statusCode": 200, "message": "Retrieved all hackers" }));
+
+        return res.status(200).send(JSON.stringify({ "results": hackers, "statusCode": 200, "message": "Retrieved all hackers", "count": snapshot.size}));
     }
     catch (error) {
         //console.error(error);
@@ -72,7 +70,7 @@ const getAllHackers = async (req,res) => {
 // Supports http DELETE
 const deleteHacker = async (req,res) => {
     try {
-        await hacker.doc(req.params.id).delete();
+        await hackersDB.doc(req.params.id).delete();
         return res.status(200).send({ "statusCode": 200, "message": "Succesful Deletion" });
     }
     catch (error) {
