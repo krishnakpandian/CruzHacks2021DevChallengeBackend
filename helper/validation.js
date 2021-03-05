@@ -27,23 +27,23 @@ async function validEmail(email) {
 
 // Returns error message is hacker object is invalid
 async function validateHackerData(hackerObj) {
-    if (hackerObj.firstName == null || !isAlphaNumeric(hackerObj.firstName) || hackerObj.firstName.length > 50) {
+    if (hackerObj.firstName == null || !isAlphaNumeric(hackerObj.firstName) || hackerObj.firstName.length > 25) {
         return "Invalid First Name Inputted";
     }
-    if (hackerObj.lastName === '' || !isAlphaNumeric(hackerObj.lastName) || hackerObj.lastName.length > 50) {
+    if (hackerObj.lastName === '' || !isAlphaNumeric(hackerObj.lastName) || hackerObj.lastName.length > 25) {
         return "Invalid Last Name Inputted";
     }
     if (hackerObj.age === '' || isNumeric(hackerObj.age) || hackerObj.age > 100 || hackerObj.age < 13) {
         return "Invalid Age Inputted";
     }
     var result = await validEmail(hackerObj.email);
-    if (hackerObj.email === '' || !result) {
+    if (hackerObj.email === '' || !result || hackerObj.email.length > 50) {
         return "Bad Email or Account already exists";
     }
-    if (hackerObj.school === '' || !isAlphaNumeric(hackerObj.school) || hackerObj.school.length > 100) {
+    if (hackerObj.school === '' || !isAlphaNumeric(hackerObj.school) || hackerObj.school.length > 50) {
         return "Invalid School Inputted";
     }
-    if (hackerObj.gender === '' || !isAlphaNumeric(hackerObj.gender) || hackerObj.gender.length > 50) {
+    if (hackerObj.gender === '' || !isAlphaNumeric(hackerObj.gender) || hackerObj.gender.length > 25) {
         return "Invalid Gender Inputted";
     }
     if (hackerObj.major === '' || !isAlphaNumeric(hackerObj.major) || hackerObj.major.length > 50) {
