@@ -1,7 +1,10 @@
 # CruzHacks 2021-2022 Backend Engineering Challenge
 ## Setup and Installation
 
-`git clone <repo-name>`
+`git clone https://github.com/krishnakpandian/CruzHacks2021DevChallengeBackend.git`
+
+This app can be ran with a frontend interface located here.
+https://github.com/krishnakpandian/CruzHacks2021DevChallengeFrontend
 
 `npm install`
 
@@ -129,8 +132,8 @@ message: Server Error
 ```
 
 ## Design Improvements
-Overall my code quality is fairly clean and I am really happy with how I designed my application. I went and sketched out a design for the frontend and backend design interface. The backend portion of this challenge was fairly straight forward and I didn't have any difficulties implementing anything. The one challenge I did run into was using jest for unit testing each endpoint. I'm not sure why this was occurring but I kept running into a timeout issue where it would hang on the firestore methods. I'm not sure why this was occurring and I could create stubs for them but I think I need more practice with that. I did have a Postman collection set so it wasn't concerned about the edge cases of our application.
+Overall my code quality is fairly clean and I am really happy with how I designed my application. I  sketched out a design for the frontend and backend design interface. The backend portion of this challenge was fairly straight forward and I didn't have any difficulties implementing anything. The one challenge I did run into was using jest for unit testing each endpoint. I'm not sure why this was occurring but I kept running into a timeout issue where it would hang on the firestore methods. I'm not sure why this was occurring and I could create stubs for them but I think I need more practice with that. I did have a Postman collection set so I wasn't concerned about the edge cases of our application.
 
-My biggest regrets for the backend in terms of design was not including any form of authentication for who can reach the API. I did add some cors restrictions initially but that alone isn't great. What I should have done was add some authentication whether it's firebase or jwt to ensure that our application is secure. My other regret was not implementing thorough unit testing via jest.
+My biggest regrets for the backend in terms of design was not including any form of authentication for who can reach the API. I did add some cors restrictions initially but that alone isn't great. What I should have done was added some token authentication whether it's firebase or jwt to ensure that our application is secure. 
 
 Overall, I'm pretty happy with my code and I hope I can join the CruzHacks development team!
